@@ -6,7 +6,7 @@ const char* ssid = "Edilene";
 const char* password = "edilene12";
 
 String botToken = "7590203312:AAFxxsKmVnWf0DrVKaX_P0o_M4V3MByA-_U";
-String chatId = "6661556610";
+String chatId = "";
 
 
 //ntp
