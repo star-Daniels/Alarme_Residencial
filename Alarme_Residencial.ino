@@ -1,11 +1,18 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include "time.h"
 
-const char* ssid = "jones";
-const char* password = "senha";
+const char* ssid = "Edilene";
+const char* password = "edilene12";
 
 String botToken = "7590203312:AAFxxsKmVnWf0DrVKaX_P0o_M4V3MByA-_U";
-String chatId = "meu-id-chat";
+String chatId = "6661556610";
+
+
+//ntp
+const char* ntpServer = "pool.ntp.org";
+const long  gmtOffset_sec = -10800; 
+const int   daylightOffset_sec = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -20,15 +27,18 @@ void setup() {
     Serial.print(".");
   }
   Serial.println("Conectado!");
-
-  sendTelegramMessage("Olá do ESP32 via Telegram!");
-}
-
-void loop() {
+  configura();
+  EnviarMensagem("Ligado");
   
 }
 
-void sendTelegramMessage(String message) {
+void loop() {
+  EnviarMensagem("Movimento Detectado");
+  EnviarMensagem(Data_hora());
+  
+}
+
+void EnviarMensagem(String message) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
 
@@ -49,4 +59,21 @@ void sendTelegramMessage(String message) {
   } else {
     Serial.println("Wi-Fi não conectado!");
   }
+}
+
+void configura() {
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+  Serial.println("Configurando horário via NTP...");
+  delay(2000); 
+}
+
+String Data_hora() {
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    return "Erro ao obter data e hora";
+  }
+
+  char buffer[30];
+  strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", &timeinfo);
+  return String(buffer);
 }
