@@ -4,7 +4,7 @@
 
 
 String botToken = "7590203312:AAFxxsKmVnWf0DrVKaX_P0o_M4V3MByA-_U";
-String chatId = "6661556610";
+String chatId = "";
 
 
 //ntp
@@ -43,6 +43,8 @@ void loop() {
     Serial.println(digitalRead(16));
     EnviarMensagem("Movimento Detectado");
     EnviarMensagem(Data_hora());
+    EnviarMensagem("________________");
+
     
   } else{
     noTone(19);
