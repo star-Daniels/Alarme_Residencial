@@ -16,6 +16,9 @@ const int   daylightOffset_sec = 0;
 void setup() {
   Serial.begin(115200);
 
+  pinMode(16, INPUT);
+  pinMode(19, OUTPUT);
+
 
   Serial.print("Conectando ao Wi-Fi...");
   WiFiManager wm;
@@ -34,8 +37,18 @@ void setup() {
 }
 
 void loop() {
-  EnviarMensagem("Movimento Detectado");
-  EnviarMensagem(Data_hora());
+
+  if(digitalRead(16) == HIGH){
+    tone(19,500,5);
+    Serial.println(digitalRead(16));
+    EnviarMensagem("Movimento Detectado");
+    EnviarMensagem(Data_hora());
+    
+  } else{
+    noTone(19);
+    EnviarMensagem("Nada");
+    Serial.println(digitalRead(16));
+  }
   
 }
 
