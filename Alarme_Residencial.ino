@@ -3,7 +3,6 @@
 #include "time.h"
 
 
-
 String botToken = "7590203312:AAFxxsKmVnWf0DrVKaX_P0o_M4V3MByA-_U";
 String chatId = "6661556610";
 
@@ -38,6 +37,7 @@ void setup() {
 
 void loop() {
 
+
   if(digitalRead(16) == HIGH){
     tone(19,500,5);
     Serial.println(digitalRead(16));
@@ -46,7 +46,6 @@ void loop() {
     
   } else{
     noTone(19);
-    EnviarMensagem("Nada");
     Serial.println(digitalRead(16));
   }
   
