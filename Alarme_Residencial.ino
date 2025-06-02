@@ -1,12 +1,11 @@
-#include <WiFi.h>
+#include <WiFiManager.h>
 #include <HTTPClient.h>
 #include "time.h"
 
-const char* ssid = "";
-const char* password = "";
+
 
 String botToken = "7590203312:AAFxxsKmVnWf0DrVKaX_P0o_M4V3MByA-_U";
-String chatId = "";
+String chatId = "6661556610";
 
 
 //ntp
@@ -16,17 +15,19 @@ const int   daylightOffset_sec = 0;
 
 void setup() {
   Serial.begin(115200);
-  WiFi.begin(ssid, password);
+
 
   Serial.print("Conectando ao Wi-Fi...");
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.println("");
+  WiFiManager wm;
+  bool res;
+  res = wm.autoConnect("AlarmeESP32-Setup");
 
-    
-    Serial.print(".");
+  if (!res) {
+    Serial.println("Falha ao conectar e timeout atingido");
+    ESP.restart();
   }
-  Serial.println("Conectado!");
+  Serial.println("Conectado com sucesso!");
+  
   configura();
   EnviarMensagem("Ligado");
   
