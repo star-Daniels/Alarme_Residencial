@@ -48,7 +48,7 @@ void loop() {
     
   } else{
     noTone(19);
-    Serial.println(digitalRead(16));
+    
   }
   
 }
