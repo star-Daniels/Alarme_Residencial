@@ -39,7 +39,7 @@ void loop() {
 
 
   if(digitalRead(16) == HIGH){
-    tone(19,500,5);
+    tone(19,500,10000);
     Serial.println(digitalRead(16));
     EnviarMensagem("Movimento Detectado");
     EnviarMensagem(Data_hora());
