@@ -45,3 +45,8 @@ Desenvolver um **sistema de alarme inteligente para residências**, que utiliza 
 2. ESP32-Sensor envia sinal para o ESP32-Notificador
 3. ESP32-Notificador sincroniza horário via NTP
 4. Alerta enviado via  bot do Telegram:
+
+---
+
+## Projeto no Wokwi
+https://wokwi.com/projects/432148800056274945
