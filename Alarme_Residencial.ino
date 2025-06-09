@@ -32,6 +32,14 @@ void setup() {
   
   configura();
   EnviarMensagem("Ligado");
+
+  tone(19,350,200);
+  delay(300);
+  tone(19,300,200);
+  delay(700);
+  tone(19,350,200);
+  delay(300);
+  tone(19,300,200);
   
 }
 
@@ -44,6 +52,7 @@ void loop() {
     EnviarMensagem("Movimento Detectado");
     EnviarMensagem(Data_hora());
     EnviarMensagem("________________");
+    tone(19,300,200);
 
     
   } else{
