@@ -50,3 +50,8 @@ Desenvolver um **sistema de alarme inteligente para residências**, que utiliza 
 
 ## Projeto no Wokwi
 https://wokwi.com/projects/432148800056274945
+
+---
+
+## Link do bot
+http://t.me/Noobpirsensorbot
