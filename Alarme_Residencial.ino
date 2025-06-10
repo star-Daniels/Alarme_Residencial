@@ -33,13 +33,13 @@ void setup() {
   configura();
   EnviarMensagem("Ligado");
 
-  tone(19,350,200);
+  tone(23,350,200);
   delay(300);
-  tone(19,300,200);
+  tone(23,300,200);
   delay(700);
-  tone(19,350,200);
+  tone(23,350,200);
   delay(300);
-  tone(19,300,200);
+  tone(23,300,200);
   
 }
 
@@ -47,16 +47,16 @@ void loop() {
 
 
   if(digitalRead(16) == HIGH){
-    tone(19,500,10000);
+    tone(23,500,10000);
     Serial.println(digitalRead(16));
     EnviarMensagem("Movimento Detectado");
     EnviarMensagem(Data_hora());
     EnviarMensagem("________________");
-    tone(19,300,200);
+    tone(23,300,200);
 
     
   } else{
-    noTone(19);
+    noTone(23);
     
   }
   
